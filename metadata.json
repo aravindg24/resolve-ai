@@ -1,0 +1,8 @@
+{
+  "name": "Resolve AI",
+  "description": "A cyberpunk-styled visual repair assistant that uses Gemini AI to analyze broken items and provide repair instructions or safety warnings.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

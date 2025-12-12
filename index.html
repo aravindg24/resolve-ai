@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resolve AI - Visual Repair Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cyber: {
+                black: '#050505',
+                dark: '#0f1115',
+                panel: '#161b22',
+                primary: '#00f3ff', // Cyan
+                secondary: '#bc13fe', // Purple
+                danger: '#ff2a2a', // Red
+                success: '#00ff41', // Matrix Green
+                text: '#e0e6ed',
+                muted: '#6b7280'
+              }
+            },
+            borderRadius: {
+              'lg': '16px',
+              'xl': '20px',
+              '2xl': '24px',
+              '3xl': '32px',
+              'full': '9999px',
+            },
+            spacing: {
+              'card': '24px',
+            },
+            boxShadow: {
+              'neon-cyan': '0 0 5px #00f3ff, 0 0 10px #00f3ff',
+              'neon-red': '0 0 5px #ff2a2a, 0 0 20px #ff2a2a',
+              'neon-purple': '0 0 5px #bc13fe, 0 0 10px #bc13fe',
+              'card': '0 10px 15px rgba(0, 0, 0, 0.5)',
+            },
+            fontFamily: {
+              tech: ['Inter', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+            },
+            animation: {
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'scan-line': 'scan 2s linear infinite',
+              'fade-in': 'fadeIn 0.3s ease-in-out',
+            },
+            keyframes: {
+              scan: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+      
+      body {
+        background-color: #050505;
+        color: #e0e6ed;
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom Scrollbar for Cyberpunk feel */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f1115;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border: 1px solid #00f3ff;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #00f3ff;
+      }
+      
+      .clip-path-hex {
+        clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
