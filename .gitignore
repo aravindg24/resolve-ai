@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 .env.local
+
+# Deployment files with secrets
+deploy.ps1
+cloudbuild.yaml

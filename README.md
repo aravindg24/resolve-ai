@@ -6,6 +6,9 @@ Resolve AI is a futuristic, web-based diagnostic tool designed to help users ide
 
 <div align="center">
 <img width="1200" height="475" alt="Resolve AI Banner" src="assets/resolve-ai-banner.png" />
+
+### 🚀 [**Live Demo**](https://resolve-ai-service-960225205764.us-central1.run.app/) | [Get Started](#run-locally)
+
 </div>
 
 ## Features
@@ -54,3 +57,20 @@ Resolve AI is a futuristic, web-based diagnostic tool designed to help users ide
 3. **Set Skill Level**: Toggle between Novice, Intermediate, or Expert.
 4. **Analyze**: Click "Initialize Analysis" and wait for the AI to diagnose the issue.
 5. **Review Results**: Follow the generated guide to perform your repair.
+
+## Deploy to Google Cloud Run
+
+1. Copy `deploy.template.ps1` to `deploy.ps1` and fill in your credentials
+2. Copy `.env.example` to `.env.local` and fill in your API keys
+3. Run `.\deploy.ps1` (requires Google Cloud SDK)
+
+## Architecture
+
+- **Frontend**: React SPA served from Express static middleware
+- **Backend**: Node.js/Express server handling Gemini API calls
+- **Database**: Supabase (PostgreSQL) for scan history persistence
+- **Hosting**: Google Cloud Run (containerized deployment)
+
+## License
+
+MIT

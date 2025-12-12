@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Trash2, Clock, AlertTriangle, CheckCircle, ChevronRight, HardDrive } from 'lucide-react';
 import { StoredScan, DangerLevel } from '../types';
-import { getScans, deleteScan } from '../services/storageService';
+import { getHistory, deleteScan } from '../services/storageService';
 
 interface ScanHistoryProps {
   onSelect: (scan: StoredScan) => void;
@@ -18,7 +18,7 @@ export const ScanHistory: React.FC<ScanHistoryProps> = ({ onSelect, onBack }) =>
 
   const loadScans = async () => {
     try {
-      const data = await getScans();
+      const data = await getHistory();
       setScans(data);
     } catch (error) {
       console.error("Failed to load history", error);
@@ -51,7 +51,7 @@ export const ScanHistory: React.FC<ScanHistoryProps> = ({ onSelect, onBack }) =>
           <HardDrive size={24} />
           <h2 className="text-xl font-bold uppercase tracking-widest">System Logs</h2>
         </div>
-        <button 
+        <button
           onClick={onBack}
           className="text-cyber-muted hover:text-white uppercase text-xs font-bold tracking-wider"
         >
@@ -72,12 +72,12 @@ export const ScanHistory: React.FC<ScanHistoryProps> = ({ onSelect, onBack }) =>
         <div className="grid gap-4">
           {scans.map((scan) => {
             const isDanger = scan.analysis.dangerLevel === DangerLevel.High;
-            const thumbnail = scan.media[0]?.data 
-                ? `data:${scan.media[0].mimeType};base64,${scan.media[0].data}` 
-                : null;
+            const thumbnail = scan.media[0]?.data
+              ? `data:${scan.media[0].mimeType};base64,${scan.media[0].data}`
+              : null;
 
             return (
-              <div 
+              <div
                 key={scan.id}
                 onClick={() => onSelect(scan)}
                 className={`
@@ -94,9 +94,9 @@ export const ScanHistory: React.FC<ScanHistoryProps> = ({ onSelect, onBack }) =>
                     <div className="w-full h-full flex items-center justify-center text-cyber-dark">?</div>
                   )}
                   {scan.media.length > 1 && (
-                     <div className="absolute bottom-0 right-0 bg-black/70 text-white text-[10px] px-1 font-mono">
-                       +{scan.media.length - 1}
-                     </div>
+                    <div className="absolute bottom-0 right-0 bg-black/70 text-white text-[10px] px-1 font-mono">
+                      +{scan.media.length - 1}
+                    </div>
                   )}
                 </div>
 
@@ -121,14 +121,14 @@ export const ScanHistory: React.FC<ScanHistoryProps> = ({ onSelect, onBack }) =>
 
                 {/* Actions */}
                 <div className="flex items-center gap-4">
-                   <button 
-                      onClick={(e) => handleDelete(e, scan.id)}
-                      className="p-2 text-cyber-muted hover:text-cyber-danger transition-colors z-10"
-                      title="Delete Record"
-                   >
-                     <Trash2 size={18} />
-                   </button>
-                   <ChevronRight className="text-cyber-dark group-hover:text-cyber-primary transition-colors" />
+                  <button
+                    onClick={(e) => handleDelete(e, scan.id)}
+                    className="p-2 text-cyber-muted hover:text-cyber-danger transition-colors z-10"
+                    title="Delete Record"
+                  >
+                    <Trash2 size={18} />
+                  </button>
+                  <ChevronRight className="text-cyber-dark group-hover:text-cyber-primary transition-colors" />
                 </div>
               </div>
             );

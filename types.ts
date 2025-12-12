@@ -38,6 +38,7 @@ export interface StoredScan {
   media: MediaItem[];
   completedSteps?: number[]; // Track progress
   skillLevel: SkillLevel;
+  query: string;
 }
 
 export type AppState = 'IDLE' | 'SCANNING' | 'PROCESSING' | 'RESULTS' | 'ERROR' | 'HISTORY';
