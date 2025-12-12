@@ -5,7 +5,7 @@
 Resolve AI is a futuristic, web-based diagnostic tool designed to help users identify and fix repair issues using multimodal AI analysis. By leveraging the power of Google's Gemini models, it can analyze images and videos of broken items to provide step-by-step repair guides tailored to your skill level.
 
 <div align="center">
-<img width="1200" height="475" alt="Resolve AI Banner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+<img width="1200" height="475" alt="Resolve AI Banner" src="assets/resolve-ai-banner.png" />
 </div>
 
 ## Features
